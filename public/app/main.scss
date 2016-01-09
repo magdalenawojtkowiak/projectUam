@@ -1,0 +1,14 @@
+@import 'components/main/main-component.scss';
+@import 'components/nav/nav.scss';
+@import 'components/order/order.scss';
+@import 'components/contact/contact.scss';
+@import 'components/status/status.scss';
+
+.content-wrapper {
+  margin: 0 auto;
+  overflow: scroll;
+}
+
+.md-whiteframe-z1 {
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+}

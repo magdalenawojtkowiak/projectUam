@@ -1,0 +1,50 @@
+<md-content layout="row" class="main-wrapper">
+    <section class="demo-container md-whiteframe-z1" flex="60">
+        <md-toolbar class="md-primary">
+            <div class="md-toolbar-tools">
+                <h3 class="white">Menu</h3>
+            </div>
+        </md-toolbar>
+        <md-list class="list">
+            <md-list-item ng-repeat="pizza in mainController.menu">
+                <div class="md-list-item-text" layout="column">
+                    <div class="pizzaDescription">{{pizza.id}}. {{pizza.name}} <span>{{pizza.price}}zl</span>
+                        <md-button class="md-raised md-primary white" ng-click="mainController.addToBasket(pizza.id)">
+                            <span class="white">Dodaj do koszyka</span>
+                        </md-button>
+                        <md-button class="md-raised md-primary" ng-click="mainController.buyDirectly(pizza)"><span
+                                class="white">Zamów bezpośrednio</span>
+                        </md-button>
+                    </div>
+                    <div><span ng-repeat="ingredients in pizza.ingredients">{{ingredients}} &nbsp</span></div>
+                </div>
+            </md-list-item>
+        </md-list>
+    </section>
+    <section flex="30" class="demo-container md-whiteframe-z1">
+        <md-toolbar class="md-primary">
+            <div class="md-toolbar-tools">
+                <h3 class="white">Koszyk</h3>
+            </div>
+        </md-toolbar>
+        <md-list>
+            <div ng-if="mainController.basket.length > 0" class="basket-titles" layout="row">
+                <div flex="50">Nazwa</div>
+                <div flex="20">Ilosc</div>
+                <div flex="20">Cena</div>
+            </div>
+            <md-list-item ng-repeat="pizza in mainController.basket">
+                <div flex="50">{{pizza.pizza.name}}</div>
+                <div flex="20"><span><span class="counter counter-margin" ng-click="mainController.increase(pizza.pizza.id)">+</span><span class="counter-margin">{{pizza.quantity}}</span>
+                    <span class="counter" ng-click="mainController.decrease(pizza.pizza.id)">-</span></span>
+                </div>
+                <div flex="20">{{pizza.pizza.price}}</div>
+            </md-list-item>
+        </md-list>
+        <div ng-if="mainController.basket.length > 0" flex="100" class="basket-titles">
+            Cena Całkowita : {{mainController.totalPrice}}
+        </div>
+        <md-button ng-click="mainController.order()" ng-if="mainController.basket.length > 0"
+                   class="md-raised md-primary"><span class="white">Do podsumowania</span></md-button>
+    </section>
+</md-content>

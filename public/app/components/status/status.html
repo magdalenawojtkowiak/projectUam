@@ -1,0 +1,15 @@
+<md-content layout="row" class="main-wrapper">
+    <section class="demo-container md-whiteframe-z1" flex="95">
+        <md-toolbar layout="row" class="md-primary">
+            <div class="md-toolbar-tools">
+                <h3 class="white">Zamówienie</h3>
+            </div>
+        </md-toolbar>
+        <div class="status-wrapper">
+            <div class="text-wrapper">Pozostało: {{statusController.minutes}} min</div>
+            <div flex="90" class="progressbar-wrapper">
+                <md-progress-linear md-mode="determinate" value="{{statusController.progressPercentage}}"></md-progress-linear>
+            </div>
+        </div>
+    </section>
+</md-content>

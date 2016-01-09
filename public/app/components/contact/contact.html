@@ -1,0 +1,23 @@
+<md-content layout="row" class="main-wrapper">
+    <section class="demo-container md-whiteframe-z1" flex="95">
+        <md-toolbar layout="row" class="md-primary">
+            <div class="md-toolbar-tools">
+                <h3 class="white">Dane Kontaktowe</h3>
+            </div>
+        </md-toolbar>
+        <div class="contact-wrapper">
+            <div>
+                {{contactController.contact.name}}
+            </div>
+            <div>
+                {{contactController.contact.address.city}} {{contactController.contact.address.street}}
+            </div>
+            <div>
+                {{contactController.contact.hours}}
+            </div>
+            <div>
+                {{contactController.contact.phone}}
+            </div>
+        </div>
+    </section>
+</md-content>

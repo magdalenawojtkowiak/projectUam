@@ -1,0 +1,50 @@
+<md-content layout="row" class="main-wrapper">
+    <section flex="95" class="demo-container md-whiteframe-z1">
+        <md-toolbar layout="row" class="md-primary">
+            <md-button flex="10" class="md-primary" ng-click="orderController.back()">
+                <span class="white">Powrót</span>
+            </md-button>
+            <div flex="85" class="md-toolbar-tools">
+                <h3 class="white">Podsumowanie</h3>
+            </div>
+        </md-toolbar>
+        <md-list>
+            <div ng-if="orderController.basket.length > 0" class="basket-titles" layout="row">
+                <div flex="50">Nazwa</div>
+                <div flex="20">Ilosc</div>
+                <div flex="20">Cena</div>
+            </div>
+            <md-list-item ng-repeat="pizza in orderController.basket">
+                <div flex="50">{{pizza.pizza.name}}</div>
+                <div flex="20"><span><span class="counter-margin">{{pizza.quantity}}</span></span>
+                </div>
+                <div flex="20">{{pizza.pizza.price}}</div>
+            </md-list-item>
+        </md-list>
+        <div ng-if="orderController.basket.length > 0" flex="100" class="basket-titles">
+            Cena Całkowita : {{orderController.totalPrice}}
+        </div>
+        <form class="form-wrapper">
+            <md-input-container>
+                <label>Numer Telefonu</label>
+                <input ng-model="orderController.phone" type="number">
+            </md-input-container>
+            <md-input-container>
+                <label>Adres</label>
+                <input ng-model="orderController.street">
+            </md-input-container>
+            <md-input-container>
+                <label>Uwagi</label>
+                <input ng-model="orderController.remarks">
+            </md-input-container>
+            <div>
+                <md-button ng-click="orderController.order()" class="md-primary md-raised"
+                           ng-disabled="orderController.phone.length < 7 || orderController.street.length < 5 "><span
+                        class="white">Zamów</span></md-button>
+            </div>
+            <div class="error-message" ng-if="orderController.error === true">
+                Nie udało się złożyć zamówienia, spróbuj jeszcze raz
+            </div>
+        </form>
+    </section>
+</md-content>
