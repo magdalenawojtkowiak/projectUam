@@ -1,3 +1,10 @@
+#install
+server/ npm install
+public/ npm install
+
+gulp build:dev
+
+
 #Project - Pizzeria
 
 
