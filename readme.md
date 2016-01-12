@@ -1,8 +1,9 @@
 #install
 server/ npm install
-public/ npm install
+server/ node server.js
 
-gulp build:dev
+public/ npm install
+public/ gulp build:dev
 
 
 #Project - Pizzeria
