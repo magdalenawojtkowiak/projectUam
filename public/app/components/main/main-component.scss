@@ -23,7 +23,16 @@
   cursor: pointer;
 }
 
-.pizzaDescription {
-  //font-family: Georgia;
+.pizza-description {
+  font-family: Georgia;
+  font-size: 1.2em;
+  font-style: italic;
+}
 
+.basket-button {
+  float: right;
+}
+
+.list-item {
+  margin-top: 1%;
 }
