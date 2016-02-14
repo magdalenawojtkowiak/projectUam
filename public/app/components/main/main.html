@@ -6,12 +6,12 @@
             </div>
         </md-toolbar>
         <md-list class="list">
-            <md-list-item class="list-item" ng-repeat="pizza in mainController.menu">
+            <md-list-item class="list-item" ng-repeat="pizza in mainController.menu | orderBy: 'ingredients.length'">
                 <div flex="100" class="md-list-item-text" layout="column">
                     <div class="pizzaDescription" layout="row">
                         <div flex="50">
-                            {{pizza.id}}. <span class="pizza-description">{{pizza.name}}</span> <span class="pizza-description">{{pizza.price}}zł</span>
-                            <div><span ng-repeat="ingredients in pizza.ingredients">{{ingredients}} &nbsp</span></div>
+                            {{$index+1}}. <span class="pizza-description">{{pizza.name}}</span> <span class="pizza-description">{{pizza.price}}zł</span>
+                            <div><span ng-repeat="ingredients in pizza.ingredients track by $index">{{ingredients.label}} &nbsp</span></div>
                         </div>
                         <div flex="50">
                             <md-button class="md-raised md-primary white"
@@ -20,6 +20,22 @@
                             </md-button>
                             <md-button class="md-raised md-primary" ng-click="mainController.buyDirectly(pizza)"><span
                                     class="white">Zamów bezpośrednio</span>
+                            </md-button>
+                        </div>
+                    </div>
+                </div>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+            <md-list-item class="list-item" ng-repeat="extra in mainController.extras">
+                <div flex="100" class="md-list-item-text" layout="column">
+                    <div class="pizzaDescription" layout="row">
+                        <div flex="50">
+                            {{$index+1}}. <span class="pizza-description">{{extra.label}}</span> <span class="pizza-description">{{extra.price}}zł</span>
+                        </div>
+                        <div flex="50">
+                            <md-button class="md-raised md-primary white"
+                                       ng-click="mainController.addToExtrasBasket(extra.id)">
+                                <span class="white">Dodaj do koszyka</span>
                             </md-button>
                         </div>
                     </div>
@@ -48,6 +64,12 @@
                     <span class="counter" ng-click="mainController.decrease(pizza.pizza.id)">-</span></span>
                 </div>
                 <div flex="20">{{pizza.pizza.price}}</div>
+            </md-list-item>
+            <md-list-item ng-repeat="extra in mainController.extrasBasket">
+                <div flex="50">{{extra.extra.label}}</div>
+                <div flex="20"><span class="counter-margin">{{extra.quantity}}</span>
+                </div>
+                <div flex="20">{{extra.extra.price}}</div>
             </md-list-item>
         </md-list>
         <div ng-if="mainController.basket.length > 0" flex="100" class="basket-titles">

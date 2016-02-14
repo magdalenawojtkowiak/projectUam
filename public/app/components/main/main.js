@@ -16,12 +16,19 @@ angular.module('main', [])
                     }
                 },
                 resolve: {
-                    menu : function(mainService){
+                    menu: function(mainService) {
                         return mainService.menu.query().$promise;
+                    },
+                    ingredients: function(mainService) {
+                      return mainService.ingredients.query().$promise;
+                    },
+                    extras: function(mainService) {
+                      return mainService.extras.query().$promise;
                     }
                 },
                 params: {
                     basket: null,
+                    extrasBasket: null,
                     totalPrice: null
                 }
             });

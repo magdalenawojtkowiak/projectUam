@@ -20,6 +20,12 @@
                 </div>
                 <div flex="20">{{pizza.pizza.price}}</div>
             </md-list-item>
+            <md-list-item ng-repeat="extra in orderController.extrasBasket">
+                <div flex="50">{{extra.extra.label}}</div>
+                <div flex="20"><span><span class="counter-margin">{{extra.quantity}}</span></span>
+                </div>
+                <div flex="20">{{extra.extra.price}}</div>
+            </md-list-item>
         </md-list>
         <div ng-if="orderController.basket.length > 0" flex="100" class="basket-titles">
             Cena Całkowita : {{orderController.totalPrice}}

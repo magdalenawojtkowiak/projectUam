@@ -36,3 +36,12 @@
 .list-item {
   margin-top: 1%;
 }
+
+.dialog {
+  position: absolute;
+  left: 5%;
+  top: 0;
+  height: 100%;
+  width: 90%;
+  z-index: 10000000;
+}

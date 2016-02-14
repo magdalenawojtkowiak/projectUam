@@ -18,7 +18,8 @@ var paths = {
         './node_modules/angular-aria/angular-aria.js',
         './node_modules/angular-animate/angular-animate.js',
         './node_modules/angular-material/angular-material.js',
-        './node_modules/angular-resource/angular-resource.min.js'
+        './node_modules/angular-resource/angular-resource.min.js',
+        './node_modules/underscore/underscore-min.js'
     ]
 };
 

@@ -19,7 +19,9 @@ angular.module('order', [])
                 params: {
                     order: null,
                     totalPrice: null,
-                    basket: null
+                    basket: null,
+                    extrasBasket: null,
+                    extras: null,
                 }
             });
     }]);
